@@ -22,17 +22,16 @@ class MiloAccessor:
         Returns:
             dict: Reporte con el mejor modelo, score y el historial completo.
         """
-        # 1. Validar que la columna exista
+        # Validar que la columna exista
         if target_col not in self._df.columns:
-            raise ValueError(f"⚠️ La columna '{target_col}' no existe en tus datos.")
+            raise ValueError(f"La columna '{target_col}' no existe en tus datos.")
             
-        # 2. Separar Features (X) y Target (y)
+        # Separar Features (X) y Target (y)
         X = self._df.drop(columns=[target_col])
         y = self._df[target_col]
         
-        # 3. Despertar al cerebro
-        # (Aquí asumimos clasificación por defecto por ahora)
+        # clasificación por defecto por ahora
         brain = MiloBrain(X, y, task="classification")
         
-        # 4. Iniciar la búsqueda y devolver resultados
+        #  Iniciar la búsqueda y devolver resultados
         return brain.think(n_trials=n_trials)

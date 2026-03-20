@@ -34,7 +34,7 @@ class MiloBrain:
         El ciclo principal de pensamiento.
         Prueba 'n_trials' modelos diferentes y encuentra el mejor.
         """
-        print(f"🧠 MiLo está pensando... Probando {n_trials} estrategias.")
+        print(f"MiLo está pensando... Probando {n_trials} estrategias.")
         
         available_breeds = list(BREEDS.keys())
 
@@ -69,12 +69,12 @@ class MiloBrain:
                     self.best_model = model
                     self.best_params = params
                     self.best_algo_name = algo_name
-                    print(f"   🌟 ¡Nuevo récord! {algo_name} -> Acc: {mean_score:.4f}")
+                    print(f" ¡Nuevo récord! {algo_name} -> Acc: {mean_score:.4f}")
             
             except Exception as e:
-                print(f"   💥 El intento {i} falló: {e}")
+                print(f" El intento {i} falló: {e}")
 
-        print("🏁 Pensamiento terminado.")
+        print(" Pensamiento terminado.")
         
         return self._generate_report()
 
